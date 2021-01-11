@@ -1,0 +1,9 @@
+@import '../../styles/colors.module.css';
+@import '../../styles/fonts.module.css';
+
+.app-header {
+  background-color: var(--light-primary-color);
+  padding: 50px;
+  font-size: xx-large;
+  color: white;
+}

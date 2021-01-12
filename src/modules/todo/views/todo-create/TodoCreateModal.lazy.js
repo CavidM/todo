@@ -1,11 +1,20 @@
+import loadable from '@loadable/component';
 // import TodoCreateModal from './TodoCreateModal';
-import { lazy, Suspense } from 'react';
+// import { lazy, Suspense } from 'react';
 
 export default function TodoCreateModalLazy() {
-  const TodoCreateModal = lazy(() => import('./TodoCreateModal'));
+  const TodoCreateModal = loadable(
+    () =>
+      import(
+        /* webpackChunkName: "TodoCreateModal" */ './TodoCreateModal'
+      ),
+    {
+      fallback: <div>Loading form....</div>
+    }
+  );
   return (
-    <Suspense fallback={<div>Loading form..</div>}>
-      <TodoCreateModal />
-    </Suspense>
+    // <Suspense fallback={}>
+    <TodoCreateModal />
+    // </Suspense>
   );
 }

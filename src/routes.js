@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 // import TodoCreateModal from './components/todo/TodoCreateModal';
 import TodoPage from './pages/todo-page/Todo.page';
-import Table2 from './modules/test/table';
+import Table2 from './modules/test-table/table';
 
 export default function Routes() {
   return (

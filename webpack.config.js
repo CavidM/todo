@@ -30,6 +30,7 @@ module.exports = {
       }
     ]
   },
+  devtool: false,
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
@@ -37,7 +38,8 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       React: 'react'
-    })
+    }),
+    new webpack.SourceMapDevToolPlugin({})
   ],
   optimization: {
     runtimeChunk: 'single'

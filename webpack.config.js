@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: { index: path.resolve(__dirname, 'src', 'index.js') },
+  entry: { index: path.resolve(__dirname, 'src', 'index.tsx') },
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js',
@@ -15,7 +15,7 @@ module.exports = {
     historyApiFallback: true
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
   },
   module: {
     rules: [
@@ -27,10 +27,15 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.(tsx|ts)?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
   },
-  devtool: false,
+  devtool: 'eval',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),

@@ -1,18 +1,15 @@
 import { useDispatch } from 'react-redux';
 import React from 'react';
-// import { addNewTodo } from '../../todo.slice';
 import TodoForm from '../todo-form/TodoForm';
 import { useHistory } from 'react-router-dom';
+import { addNewTodo } from '../../todo.action';
 
 const TodoCreate = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const onAddNewTodo = async (todo) => {
-    const newTodod = await dispatch({
-      type: 'ADD_NEW_TODO',
-      payload: todo
-    });
+    const newTodod = await dispatch(addNewTodo(todo));
 
     console.log(newTodod);
 

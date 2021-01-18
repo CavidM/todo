@@ -1,3 +1,5 @@
+import { todoActions } from './todo.constants';
+
 const initialState = {
   items: [],
   status: 'idle'
@@ -5,7 +7,7 @@ const initialState = {
 
 export default function TodoReducer(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_NEW_TODO_SUCCESS': {
+    case todoActions.todoAddSuccess: {
       return {
         ...state,
         items: [...state.items, action.payload]

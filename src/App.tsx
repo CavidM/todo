@@ -8,18 +8,14 @@ import './App.css';
 import MainLayout from './layouts/MainLayout';
 import Routes from './routes';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Router>
-        <Route>
-          <MainLayout>
-            <Routes />
-          </MainLayout>
-        </Route>
+        <MainLayout>
+          <Routes />
+        </MainLayout>
       </Router>
     </div>
   );
 }
-
-export default App;

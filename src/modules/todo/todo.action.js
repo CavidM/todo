@@ -1,14 +1,19 @@
 import { useDispatch } from 'react-redux';
 // import { storeDispatch as d } from '../../store';
-import { addTodo } from './todo.slice';
+import { todoActions } from './todo.constants';
 
 export function addNewTodo(todo) {
-  const d = useDispatch();
-  // return (dispatch) => {
-  // console.log(todo);
+  return {
+    type: todoActions.todoAdd,
+    payload: todo
+  };
+}
 
-  return d(addTodo(todo));
-  // };
+export function addNewTodoSuccess(todo) {
+  return {
+    type: todoActions.todoAddSuccess,
+    payload: todo
+  };
 }
 
 export const updateTodo = (todo) => {

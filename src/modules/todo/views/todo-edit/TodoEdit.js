@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 // import { editTodo } from '../../todo.slices';
 import TodoForm from '../todo-form/TodoForm';
+import { editTodo } from '../../todo.action';
 
 export default function TodoEdit() {
   const params = useParams();
@@ -12,10 +13,7 @@ export default function TodoEdit() {
   );
 
   const onEditTodo = (todo) => {
-    dispatch({
-      type: 'EDIT_TODO',
-      payload: todo
-    });
+    dispatch(editTodo(todo));
   };
 
   return <TodoForm submitForm={onEditTodo} todo={todo} />;

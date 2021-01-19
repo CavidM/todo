@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { deleteTodoApi, editTodoApi, saveTodoApi } from './todo.api';
 import { todoActions } from './todo.constants';
-import { addNewTodoSuccess } from './todo.action';
+import { addNewTodoSuccess, editTodoSuccess } from './todo.action';
 
 export function* addNewTodo(action) {
   try {
@@ -9,10 +9,14 @@ export function* addNewTodo(action) {
 
     const todo = action.payload;
     todo.id = todoRes;
+    action.meta = 'success';
 
+    console.log(todo);
     yield put(addNewTodoSuccess(todo));
   } catch (e) {
+    action.meta = 'error';
     console.log(e);
+    return e;
   }
 }
 
@@ -20,10 +24,7 @@ export function* editTodo(action) {
   try {
     const todoRes = yield call(editTodoApi, action.payload);
 
-    yield put({
-      type: 'EDIT_TODO_SUCCESS',
-      payload: action.payload
-    });
+    yield put(editTodoSuccess(action.payload));
   } catch (e) {
     console.log(e);
   }
@@ -48,7 +49,7 @@ export function* watchAddNewTodo(...args) {
 }
 
 export function* watchEditTodo(...args) {
-  yield takeLatest('EDIT_TODO', editTodo);
+  yield takeLatest(todoActions.todoEdit, editTodo);
 }
 
 export function* watchDeleteTodo(...args) {

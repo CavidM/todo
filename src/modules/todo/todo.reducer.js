@@ -13,7 +13,7 @@ export default function TodoReducer(state = initialState, action) {
         items: [...state.items, action.payload]
       };
     }
-    case 'EDIT_TODO_SUCCESS': {
+    case todoActions.todoEditSuccess: {
       const todo = action.payload;
       const items = state.items.map((item) => {
         if (item.id !== todo.id) {

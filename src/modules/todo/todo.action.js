@@ -16,6 +16,16 @@ export function addNewTodoSuccess(todo) {
   };
 }
 
-export const updateTodo = (todo) => {
-  console.log(todo);
-};
+export function editTodo(todo) {
+  return {
+    type: todoActions.todoEdit,
+    payload: todo
+  };
+}
+
+export function editTodoSuccess(todo) {
+  return {
+    type: todoActions.todoEditSuccess,
+    payload: todo
+  };
+}

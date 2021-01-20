@@ -1,6 +1,19 @@
 import { useDispatch } from 'react-redux';
 // import { storeDispatch as d } from '../../store';
 import { todoActions } from './todo.constants';
+import createAction from '../../tools/actionManager';
+
+/*class TodoAction extends Action {
+  constructor() {
+    super();
+  }
+
+  public addNewTodo() {
+    return this.createAction({
+
+    })
+  }
+}*/
 
 export function addNewTodo(todo) {
   return {
@@ -17,10 +30,7 @@ export function addNewTodoSuccess(todo) {
 }
 
 export function editTodo(todo) {
-  return {
-    type: todoActions.todoEdit,
-    payload: todo
-  };
+  return createAction(todoActions.todoEdit, todo);
 }
 
 export function editTodoSuccess(todo) {

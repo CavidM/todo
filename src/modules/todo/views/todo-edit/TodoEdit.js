@@ -12,9 +12,21 @@ export default function TodoEdit() {
     state.todos.items.find((item) => item.id === params.id)
   );
 
+  if(!Boolean(todo)) {
+    return <h1>There is no item</h1>
+  }
+
   const onEditTodo = (todo) => {
-    dispatch(editTodo(todo));
+    const x = dispatch(editTodo(todo));
+    console.log(x);
   };
 
   return <TodoForm submitForm={onEditTodo} todo={todo} />;
 }
+
+
+
+
+
+
+

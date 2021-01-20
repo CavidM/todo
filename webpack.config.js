@@ -35,7 +35,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),

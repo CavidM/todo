@@ -5,7 +5,7 @@ import todoSaga, {
   watchAddNewTodo,
   watchDeleteTodo,
   watchEditTodo
-} from './modules/todo/todo.saga';
+} from './modules/todo/todo.saga.ts';
 import createSagaMiddleware from 'redux-saga';
 import { fork, spawn } from 'redux-saga/effects';
 

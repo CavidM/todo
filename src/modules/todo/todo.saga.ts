@@ -2,36 +2,39 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { deleteTodoApi, editTodoApi, saveTodoApi } from './todo.api';
 import { todoActions } from './todo.constants';
 import { addNewTodoSuccess, editTodoSuccess } from './todo.action';
+import { actionStatus, BaseAction } from '../../tools/actionManager';
 
-export function* addNewTodo(action) {
+export function* addNewTodo(action: BaseAction) {
   try {
     const todoRes = yield call(saveTodoApi, action.payload);
 
     const todo = action.payload;
     todo.id = todoRes;
-    action.meta = 'success';
+    // action.meta = 'success';
 
-    console.log(todo);
     yield put(addNewTodoSuccess(todo));
   } catch (e) {
-    action.meta = 'error';
-    console.log(e);
+    // action.meta = 'error';
     return e;
   }
 }
 
-export function* editTodo(action) {
+export function* editTodo(action: BaseAction) {
   try {
     const todoRes = yield call(editTodoApi, action.payload);
 
+    // action.meta = 'success';
+
+    action.finish(actionStatus.success);
+
     yield put(editTodoSuccess(action.payload));
   } catch (e) {
-    console.log(e);
+    // action.meta = 'error';
   }
 }
 
-export function* deleteTodo(action) {
-  console.log(action);
+export function* deleteTodo(action: BaseAction) {
+  // console.log(action);
   try {
     const res = yield call(deleteTodoApi, action.payload);
 
@@ -39,19 +42,17 @@ export function* deleteTodo(action) {
       type: 'DELETE_TODO_SUCCESS',
       payload: action.payload
     });
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
 }
 
-export function* watchAddNewTodo(...args) {
+export function* watchAddNewTodo(...args: any[]) {
   yield takeLatest(todoActions.todoAdd, addNewTodo);
 }
 
-export function* watchEditTodo(...args) {
+export function* watchEditTodo(...args: any[]) {
   yield takeLatest(todoActions.todoEdit, editTodo);
 }
 
-export function* watchDeleteTodo(...args) {
-  yield takeLatest('DELETE_TODO', deleteTodo);
+export function* watchDeleteTodo(...args: any[]) {
+  yield takeLatest(todoActions.todoDelete, deleteTodo);
 }

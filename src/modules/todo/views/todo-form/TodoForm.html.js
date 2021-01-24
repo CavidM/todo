@@ -1,10 +1,7 @@
 import { Form, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
 function TodoFormHtml({ onSubmit, errors, onChange, formData }) {
-  // console.log(errors);
-
   return (
     <Form noValidate onSubmit={onSubmit} onChange={onChange}>
       <Form.Group controlId="formBasicEmail">

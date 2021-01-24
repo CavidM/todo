@@ -37,7 +37,7 @@ export interface BaseAction {
 
 const baseAction: BaseAction = {
   meta: {
-    status: actionStatus.success
+    status: actionStatus.empty
   },
   finish(status: actionStatus) {
     this.meta.status = status;
@@ -46,7 +46,10 @@ const baseAction: BaseAction = {
   payload: null
 };
 
-export default function createAction(type: string, payload: any) {
+export default function createAction(
+  type: string,
+  payload: any
+): BaseAction {
   return {
     ...baseAction,
     type,

@@ -23,11 +23,9 @@ export function* editTodo(action: BaseAction) {
   try {
     const todoRes = yield call(editTodoApi, action.payload);
 
-    // action.meta = 'success';
+    yield put(editTodoSuccess(action.payload));
 
     action.finish(actionStatus.success);
-
-    yield put(editTodoSuccess(action.payload));
   } catch (e) {
     // action.meta = 'error';
   }

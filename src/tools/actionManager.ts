@@ -1,13 +1,3 @@
-export enum actionStatus {
-  success = 'success',
-  fail = 'fail',
-  empty = ''
-}
-
-export interface ActionMeta {
-  status: actionStatus;
-}
-
 export interface BaseAction {
   /**
    * Action type or Event name which triggered from any part of application by user
@@ -20,38 +10,14 @@ export interface BaseAction {
   /**
    * The main data which this action (event) will trigger for.
    */
-  payload: any;
-
-  /**
-   * Hold any information about how action was performed
-   */
-  meta: ActionMeta;
-
-  /**
-   * @param status
-   * Call this on action object which indicate that action is complete for using it in anywhere in application
-   * It can add extra data to meta property giving more  information about how action was finished
-   */
-  finish: (status: actionStatus) => void;
+  payload?: any;
 }
-
-const baseAction: BaseAction = {
-  meta: {
-    status: actionStatus.empty
-  },
-  finish(status: actionStatus) {
-    this.meta.status = status;
-  },
-  type: '',
-  payload: null
-};
 
 export default function createAction(
   type: string,
   payload: any
 ): BaseAction {
   return {
-    ...baseAction,
     type,
     payload
   };

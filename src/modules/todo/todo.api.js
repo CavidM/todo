@@ -18,6 +18,6 @@ export const deleteTodoApi = async (todo) => {
 
 export const editTodoApi = async (todo) => {
   return new Promise((resolve, reject) => {
-    resolve(todo.id);
+    setTimeout(() => resolve(todo.id), 1000);
   });
 };

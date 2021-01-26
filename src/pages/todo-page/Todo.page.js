@@ -1,9 +1,5 @@
 import { Link, Route } from 'react-router-dom';
-import {
-  // TodoCreateModal,
-  TodoList,
-  TodoEditModal
-} from '../../modules/todo';
+import { TodoList, TodoEditModal } from '../../modules/todo';
 import styles from './TodoPage.module.css';
 import TodoCreateModalLazy from '../../modules/todo/views/todo-create/TodoCreateModal.lazy';
 

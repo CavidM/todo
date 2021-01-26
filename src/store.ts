@@ -1,15 +1,17 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import todoReducer from './modules/todo/todo.reducer';
-import todoSaga, {
-  watchAddNewTodo,
-  watchDeleteTodo,
-  watchEditTodo
-} from './modules/todo/todo.saga.ts';
+import todoReducer, {
+  TodoInitialState
+} from './modules/todo/todo.reducer';
+import { watchTodoActions } from './modules/todo/todo.saga';
 import createSagaMiddleware from 'redux-saga';
 import { fork, spawn } from 'redux-saga/effects';
 
 const sagaMiddleware = createSagaMiddleware();
+
+export interface State {
+  todos: TodoInitialState;
+}
 
 const reducer = combineReducers({ todos: todoReducer });
 
@@ -23,9 +25,7 @@ const store = createStore(
 );
 
 function* rootSaga() {
-  yield spawn(watchAddNewTodo);
-  yield spawn(watchEditTodo);
-  yield spawn(watchDeleteTodo);
+  yield spawn(watchTodoActions);
 }
 
 sagaMiddleware.run(rootSaga);

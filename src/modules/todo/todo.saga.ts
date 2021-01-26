@@ -1,20 +1,24 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { deleteTodoApi, editTodoApi, saveTodoApi } from './todo.api';
-import { todoActions } from './todo.constants';
-import { addNewTodoSuccess, editTodoSuccess } from './todo.action';
-import { actionStatus, BaseAction } from '../../tools/actionManager';
+import { Actions } from './todo.constants';
+import {
+  addNewTodoSuccess,
+  changeTodoStateStatus,
+  editTodoSuccess
+} from './todo.action';
+import { BaseAction } from '../../tools/actionManager';
+import { goTo } from '../../tools/Routing';
+import { StoreStateStatus } from '../../tools/types/StoreStateStatus';
 
-export function* addNewTodo(action: BaseAction) {
+export function* addTodo(action: BaseAction) {
   try {
     const todoRes = yield call(saveTodoApi, action.payload);
 
     const todo = action.payload;
     todo.id = todoRes;
-    // action.meta = 'success';
 
     yield put(addNewTodoSuccess(todo));
   } catch (e) {
-    // action.meta = 'error';
     return e;
   }
 }
@@ -25,9 +29,11 @@ export function* editTodo(action: BaseAction) {
 
     yield put(editTodoSuccess(action.payload));
 
-    action.finish(actionStatus.success);
+    goTo('/todos');
+
+    yield put(changeTodoStateStatus(StoreStateStatus.idle));
   } catch (e) {
-    // action.meta = 'error';
+    yield put(changeTodoStateStatus(StoreStateStatus.fail));
   }
 }
 
@@ -43,14 +49,8 @@ export function* deleteTodo(action: BaseAction) {
   } catch (e) {}
 }
 
-export function* watchAddNewTodo(...args: any[]) {
-  yield takeLatest(todoActions.todoAdd, addNewTodo);
-}
-
-export function* watchEditTodo(...args: any[]) {
-  yield takeLatest(todoActions.todoEdit, editTodo);
-}
-
-export function* watchDeleteTodo(...args: any[]) {
-  yield takeLatest(todoActions.todoDelete, deleteTodo);
+export function* watchTodoActions(...args: any[]) {
+  yield takeLatest(Actions.add, addTodo);
+  yield takeLatest(Actions.edit, editTodo);
+  yield takeLatest(Actions.delete, deleteTodo);
 }

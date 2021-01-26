@@ -1,11 +1,9 @@
-export const todoActions = {
-  todoAdd: 'todo/add',
-  todoAddSuccess: 'todo/add:success',
-  todoAddFail: 'todo/add:fail',
-  todoEdit: 'todo/edit',
-  todoEditSuccess: 'todo/edit:success',
-  todoEditFail: 'todo/edit:fail',
-  todoDelete: 'todo/delete',
-  todoDeleteSuccess: 'todo/delete:success',
-  todoDeleteFail: 'todo/delete:fail'
+export const Actions = {
+  add: 'todo/add',
+  addSuccess: 'todo/add:success',
+  edit: 'todo/edit',
+  editSuccess: 'todo/edit:success',
+  delete: 'todo/delete',
+  deleteSuccess: 'todo/delete:success',
+  changeStatus: 'todo/changeStatus'
 };

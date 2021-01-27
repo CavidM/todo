@@ -1,11 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { deleteTodoApi, editTodoApi, saveTodoApi } from './todo.api';
-import { Actions } from './todo.constants';
+import { deleteTodoApi, editTodoApi, saveTodoApi } from './apis';
+import { Actions } from './constants';
 import {
   addNewTodoSuccess,
   changeTodoStateStatus,
   editTodoSuccess
-} from './todo.action';
+} from './actions';
 import { BaseAction } from '../../tools/actionManager';
 import { goTo } from '../../tools/Routing';
 import { StoreStateStatus } from '../../tools/types/StoreStateStatus';

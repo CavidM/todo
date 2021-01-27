@@ -1,5 +1,5 @@
-// import TodoCreateModal from './views/todo-create/TodoCreateModal';
-import TodoEditModal from './views/todo-edit/TodoEditModal';
-import TodoList from './views/todo-list/TodoList';
+// import TodoCreateModal from './views/create/TodoCreateModal';
+import TodoEditModal from './views/edit/TodoEditModal';
+import TodoList from './views/list/TodoList';
 
 export { TodoEditModal, TodoList };

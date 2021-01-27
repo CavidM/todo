@@ -1,4 +1,4 @@
-import { Actions } from './todo.constants';
+import { Actions } from './constants';
 import { StoreStateStatus } from '../../tools/types/StoreStateStatus';
 import { BaseAction } from '../../tools/actionManager';
 import { Todo } from './Todo';

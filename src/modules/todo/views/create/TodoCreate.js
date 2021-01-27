@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import React from 'react';
-import TodoForm from '../todo-form/TodoForm';
+import TodoForm from '../form/TodoForm';
 import { useHistory } from 'react-router-dom';
-import { addNewTodo } from '../../todo.action.ts';
+import { addNewTodo } from '../../actions.ts';
 
 const TodoCreate = () => {
   const dispatch = useDispatch();

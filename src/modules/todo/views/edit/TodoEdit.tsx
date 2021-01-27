@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import TodoForm from '../todo-form/TodoForm';
-import { editTodo } from '../../todo.action';
+import TodoForm from '../form/TodoForm';
+import { editTodo } from '../../actions';
 import { State } from '../../../../store';
 
 export default function TodoEdit() {

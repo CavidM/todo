@@ -1,12 +1,12 @@
 import { Link, Route } from 'react-router-dom';
 import { TodoList, TodoEditModal } from '../../modules/todo';
 import styles from './TodoPage.module.css';
-import TodoCreateModalLazy from '../../modules/todo/views/todo-create/TodoCreateModal.lazy';
+import TodoCreateModalLazy from '../../modules/todo/views/create/TodoCreateModal.lazy';
 
 function TodoView() {
   return (
     <>
-      <div className={styles['todo-list']}>
+      <div className={styles['list']}>
         <TodoList />
       </div>
       <Link

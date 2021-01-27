@@ -1,19 +1,14 @@
-import { Actions } from './constants';
-import { StoreStateStatus } from '../../tools/types/StoreStateStatus';
+import { Actions } from './todo.constant';
 import { BaseAction } from '../../tools/actionManager';
-import { Todo } from './Todo';
+import { InitialState } from './todo.type';
+import { StoreStateStatus } from '../../tools/types/StoreStateStatus';
 
-export interface TodoInitialState {
-  items: Todo[];
-  status: StoreStateStatus;
-}
-
-let initialState: TodoInitialState = {
+let initialState: InitialState = {
   items: [],
   status: StoreStateStatus.idle
 };
 
-export default function TodoReducer(
+export default function todoReducer(
   state = initialState,
   action: BaseAction
 ) {

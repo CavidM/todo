@@ -1,7 +1,7 @@
-import { Actions } from './constants';
+import { Actions } from './todo.constant';
 import createAction from '../../tools/actionManager';
 import { StoreStateStatus } from '../../tools/types/StoreStateStatus';
-import { Todo } from './Todo';
+import { Todo } from './todo.type';
 
 export function addNewTodo(todo: Todo) {
   return createAction(Actions.add, todo);

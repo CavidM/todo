@@ -1,7 +1,12 @@
 import { Form, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-function TodoFormHtml({ onSubmit, errors, onChange, formData }) {
+function TodoFormHtml(
+  onSubmit: any,
+  errors: any,
+  onChange: any,
+  formData: any
+) {
   return (
     <Form noValidate onSubmit={onSubmit} onChange={onChange}>
       <Form.Group controlId="formBasicEmail">

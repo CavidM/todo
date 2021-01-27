@@ -1,11 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { deleteTodoApi, editTodoApi, saveTodoApi } from './apis';
-import { Actions } from './constants';
+import { Actions } from './todo.constant';
 import {
   addNewTodoSuccess,
   changeTodoStateStatus,
   editTodoSuccess
-} from './actions';
+} from './todo.action';
 import { BaseAction } from '../../tools/actionManager';
 import { goTo } from '../../tools/Routing';
 import { StoreStateStatus } from '../../tools/types/StoreStateStatus';
@@ -49,7 +49,7 @@ export function* deleteTodo(action: BaseAction) {
   } catch (e) {}
 }
 
-export function* watchTodoActions(...args: any[]) {
+export default function* TodoWatchActions(...args: any[]) {
   yield takeLatest(Actions.add, addTodo);
   yield takeLatest(Actions.edit, editTodo);
   yield takeLatest(Actions.delete, deleteTodo);

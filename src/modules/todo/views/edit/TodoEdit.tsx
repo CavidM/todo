@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import TodoForm from '../form/TodoForm';
-import { editTodo } from '../../actions';
+import { editTodo } from '../../todo.action';
 import { State } from '../../../../store';
+import { Todo } from '../../todo.type';
 
 export default function TodoEdit() {
   const params: any = useParams();
   const dispatch = useDispatch();
 
   const todo = useSelector((state: State) =>
-    state.todos.items.find((item: any) => item.id === params.id)
+    state.todos.items.find((todo: Todo) => todo.id === params.id)
   );
 
   const todoEditStatus = useSelector(
@@ -20,7 +21,7 @@ export default function TodoEdit() {
     return <h1>There is no item</h1>;
   }
 
-  const onEditTodo = (todo: any) => {
+  const onEditTodo = (todo: Todo) => {
     dispatch(editTodo(todo));
   };
 

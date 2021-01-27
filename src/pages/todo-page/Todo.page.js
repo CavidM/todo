@@ -1,7 +1,9 @@
 import { Link, Route } from 'react-router-dom';
-import { TodoList, TodoEditModal } from '../../modules/todo';
 import styles from './TodoPage.module.css';
-import TodoCreateModalLazy from '../../modules/todo/views/create/TodoCreateModal.lazy';
+import TodoCreateModalLazy from '../../modules/todo/views/create/TodoCreateModal.lazy.tsx';
+import TodoEditModal from '../../modules/todo/views/edit/TodoEditModal.tsx';
+import TodoList from '../../modules/todo/views/list/TodoList';
+// import TodoCreateModalLazy from '../../modules/todo/views/create/TodoCreateModal.lazy';
 
 function TodoView() {
   return (

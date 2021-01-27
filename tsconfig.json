@@ -2,14 +2,15 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "es2020",
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules"

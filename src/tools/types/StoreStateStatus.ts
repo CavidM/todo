@@ -4,3 +4,7 @@ export enum StoreStateStatus {
   success = 'success',
   fail = 'fail'
 }
+
+export interface StoreInitialState {
+  status: StoreStateStatus;
+}

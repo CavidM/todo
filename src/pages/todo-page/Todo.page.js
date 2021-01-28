@@ -7,7 +7,7 @@ import TodoList from '../../modules/todo/views/list/TodoList';
 
 function TodoView() {
   return (
-    <>
+    <div id={'todoApp'}>
       <div className={styles['list']}>
         <TodoList />
       </div>
@@ -23,7 +23,7 @@ function TodoView() {
         component={TodoCreateModalLazy}
       />
       <Route exact path="/todos/:id/edit" component={TodoEditModal} />
-    </>
+    </div>
   );
 }
 

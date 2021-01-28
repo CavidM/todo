@@ -16,19 +16,15 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
-/*if ('serviceWorker' in navigator) {
-  // Use the window load event to keep the page load performant
+if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    console.log(process.env.PUBLIC_URL);
-    navigator.serviceWorker.register(
-      process.env.PUBLIC_URL + '/sw.js'
-    );
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then((registration) => {
+        console.log('SW registered: ', registration);
+      })
+      .catch((registrationError) => {
+        console.log('SW registration failed: ', registrationError);
+      });
   });
-}*/
-
-// if ('serviceWorker' in navigator) {
-//   // Use the window load event to keep the page load performant
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker.register(serv);
-//   });
-// }
+}

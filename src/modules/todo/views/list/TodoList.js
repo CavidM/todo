@@ -5,7 +5,7 @@ import TodoListHtml from './TodoList.html';
 
 function TodoList() {
   const todos = useSelector((state) => state.todos.items);
-
+  console.log('todo list');
   const dispatch = useDispatch();
   const history = useHistory();
 

@@ -20,6 +20,7 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
+    host: '0.0.0.0',
     port: 3007,
     historyApiFallback: true,
     contentBase: path.join(__dirname, 'public'),
@@ -46,7 +47,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval-source-map',
+  devtool: 'eval',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Progressive web application',
@@ -64,10 +65,10 @@ module.exports = {
       skipWaiting: true,
       maximumFileSizeToCacheInBytes: 50000000
     }),*/
-    new WorkboxPlugin.InjectManifest({
-      swSrc: './service-worker.js',
-      maximumFileSizeToCacheInBytes: 50000000
-    })
+    // new WorkboxPlugin.InjectManifest({
+    //   swSrc: './service-worker.js',
+    //   maximumFileSizeToCacheInBytes: 50000000
+    // })
   ],
   optimization: {
     runtimeChunk: 'single'

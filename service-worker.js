@@ -7,7 +7,7 @@ import { clientsClaim } from 'workbox-core';
 
 console.log('aaa')
 
-precacheAndRoute(self.__WB_MANIFEST);
+// precacheAndRoute(self.__WB_MANIFEST);
 self.addEventListener('activate', function(event) {
   console.log('Claiming control');
   return self.clients.claim();

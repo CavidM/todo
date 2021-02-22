@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: {
     app: {
       import: path.resolve(__dirname, 'src', 'index.tsx')
@@ -24,7 +25,8 @@ module.exports = {
     port: 3007,
     historyApiFallback: true,
     contentBase: path.join(__dirname, 'public'),
-    contentBasePublicPath: '/public'
+    contentBasePublicPath: '/public',
+    https: true
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
@@ -47,7 +49,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval',
+  devtool: 'eval-cheap-module-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Progressive web application',

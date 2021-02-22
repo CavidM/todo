@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import TodoPage from './pages/todo-page/Todo.page';
 // import Table2 from './modules/test-table/table';
 
-export default function Routes() {
+export default function TodoRoutes() {
   return (
     <div>
       <Switch>

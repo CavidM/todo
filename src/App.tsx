@@ -1,5 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Router, Switch } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 import MainLayout from './layouts/MainLayout';
 import MessengerLayout from './layouts/MessengerLayout';
@@ -9,6 +9,7 @@ import history from './tools/Routing';
 export default function App() {
   return (
     <div className="App">
+      <CssBaseline />
       <Router history={history}>
         <Switch>
           <Route exact path={['/todos', '/todos/*']}>

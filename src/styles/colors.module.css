@@ -4,7 +4,7 @@
   --selected-disabled-color: var(--light-disabled-color);
 
   /* Set the 'light' theme */
-  --light-primary-color: #714141;
+  --light-primary-color: cadetblue;
   --light-disabled-color: #6c757d;
 
   /* Set the 'dark' theme */

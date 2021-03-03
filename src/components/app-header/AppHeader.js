@@ -1,7 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import styles from './AppHeader.module.css';
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 function AppHeader(props) {
   const history = useHistory();
@@ -13,6 +14,7 @@ function AppHeader(props) {
     <Container fluid className={styles['app-header']}>
       <Row>
         <Button
+          variant="contained"
           onClick={() => {
             changeStory();
           }}

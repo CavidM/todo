@@ -1,5 +1,6 @@
 import React from 'react';
-import './button.css';
+// import './button.css';
+import { Button as MuiButton } from '@material-ui/core';
 
 export interface ButtonProps {
   /**
@@ -38,8 +39,9 @@ export const Button: React.FC<ButtonProps> = ({
     ? 'storybook-button--primary'
     : 'storybook-button--secondary';
   return (
-    <button
-      type="button"
+    <MuiButton
+      variant="contained"
+      // type="button"
       className={[
         'storybook-button',
         `storybook-button--${size}`,
@@ -49,6 +51,6 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {label}
-    </button>
+    </MuiButton>
   );
 };

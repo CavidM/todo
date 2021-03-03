@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
   entry: {
     app: {
       import: path.resolve(__dirname, 'src', 'index.tsx')
-    },
+    }
     // serviceWorker: {
     //   import: path.resolve(__dirname, 'service-worker.js'),
     //   filename: 'service-worker.js'
@@ -17,7 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js',
-    chunkFilename: '[id].[hash:8].js',
+    chunkFilename: '[id].[fullhash:8].js',
     publicPath: '/'
   },
   devServer: {
@@ -59,7 +59,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react'
     }),
-    new webpack.SourceMapDevToolPlugin({}),
+    new webpack.SourceMapDevToolPlugin({})
     /*new WorkboxPlugin.GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast
       // and not allow any straggling "old" SWs to hang around

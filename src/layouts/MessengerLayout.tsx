@@ -1,4 +1,5 @@
 import { goTo } from '../tools/Routing';
+import Button from '@material-ui/core/Button';
 
 export default function MessengerLayout({
   children
@@ -8,7 +9,9 @@ export default function MessengerLayout({
   return (
     <>
       <h3>Messenger layout</h3>
-      <button onClick={() => goTo('/messenger')}></button>
+      <Button variant="contained" onClick={() => goTo('/messenger')}>
+        Messenger
+      </Button>
       {children}
     </>
   );

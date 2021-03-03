@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import AppHeader from '../components/app-header/AppHeader';
+import AppHeader from '../components/app-header/AppHeader.lazy';
 
 function MainLayout({ children }) {
   return (

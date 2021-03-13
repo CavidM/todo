@@ -10,14 +10,14 @@ export default function TodoEdit() {
   const dispatch = useDispatch();
 
   const todo = useSelector((state: State) =>
-    state.todos.items.find((todo: Todo) => todo.id === params.id)
+    state.todos.items.find((item: Todo) => item.id === params.id)
   );
 
   const todoEditStatus = useSelector(
     (state: State) => state.todos.status
   );
 
-  if (!Boolean(todo)) {
+  if (!todo) {
     return <h1>There is no item</h1>;
   }
 

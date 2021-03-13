@@ -21,7 +21,7 @@ export default function App() {
           <Route exact path={'/*'}>
             <MessengerLayout>
               <Route
-                path={'/messenger'}
+                path="/messenger"
                 component={() => <p>Messenger thread</p>}
               />
             </MessengerLayout>

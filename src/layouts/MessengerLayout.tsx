@@ -1,5 +1,5 @@
-import { goTo } from '../tools/Routing';
 import Button from '@material-ui/core/Button';
+import { goTo } from '../tools/Routing';
 
 export default function MessengerLayout({
   children

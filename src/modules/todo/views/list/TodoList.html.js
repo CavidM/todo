@@ -40,7 +40,7 @@ export default function TodoListHtml({
           <th>#</th>
           <th>Title</th>
           <th>Description</th>
-          <th></th>
+          <th />
         </tr>
       </thead>
       <tbody>{todosComponent}</tbody>

@@ -1,14 +1,15 @@
-import { TextField } from '@material-ui/core';
+import { IconButton, TextField } from '@material-ui/core';
+import { Send } from '@material-ui/icons';
 
-interface NewMessageFormProps {
+export interface NewMessageFormProps {
   value: string;
   handleChange: () => void;
 }
 
-export default function NewMessageForm({
+export const NewMessageForm: React.FC<NewMessageFormProps> = ({
   value,
   handleChange
-}: NewMessageFormProps) {
+}) => {
   return (
     <>
       <TextField
@@ -20,6 +21,9 @@ export default function NewMessageForm({
         onChange={handleChange}
         variant="outlined"
       />
+      <IconButton>
+        <Send />
+      </IconButton>
     </>
   );
-}
+};

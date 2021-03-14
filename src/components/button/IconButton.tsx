@@ -1,7 +1,8 @@
-import React from 'react';
-import { IconButton as MuiIconButton } from '@material-ui/core';
-import { PropTypes, useTheme } from '@material-ui/core';
-import { Palette } from '@material-ui/core/styles/createPalette';
+import {
+  IconButton as MuiIconButton,
+  PropTypes,
+  useTheme
+} from '@material-ui/core';
 
 export interface SendMessageButtonProps {
   size?: 'small' | 'medium';

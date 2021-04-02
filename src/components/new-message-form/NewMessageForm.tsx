@@ -8,7 +8,7 @@ export interface NewMessageFormProps {
 
 export const NewMessageForm: React.FC<NewMessageFormProps> = ({
   value,
-  handleChange
+  ...props
 }) => {
   return (
     <>
@@ -18,10 +18,9 @@ export const NewMessageForm: React.FC<NewMessageFormProps> = ({
         multiline
         rowsMax={4}
         value={value}
-        onChange={handleChange}
         variant="outlined"
       />
-      <IconButton>
+      <IconButton {...props}>
         <Send />
       </IconButton>
     </>

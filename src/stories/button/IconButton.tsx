@@ -1,7 +1,6 @@
 import {
   IconButton as MuiIconButton,
-  PropTypes,
-  useTheme
+  PropTypes
 } from '@material-ui/core';
 
 export interface SendMessageButtonProps {
@@ -9,16 +8,23 @@ export interface SendMessageButtonProps {
   color?: PropTypes.Color;
   disabled?: boolean;
   children: JSX.Element;
+  onClick?: () => void;
 }
 
 const IconButton: React.FC<SendMessageButtonProps> = ({
   size = 'small',
   color = 'primary',
   disabled = false,
-  children = null
+  children = null,
+  ...props
 }) => {
   return (
-    <MuiIconButton size={size} color={color} disabled={disabled}>
+    <MuiIconButton
+      size={size}
+      color={color}
+      disabled={disabled}
+      {...props}
+    >
       {children}
     </MuiIconButton>
   );

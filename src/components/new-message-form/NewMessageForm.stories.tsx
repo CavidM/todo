@@ -17,3 +17,5 @@ export const Main = Template.bind({});
 Main.args = {
   value: 'input message'
 };
+
+export const Empty = Template.bind({});
